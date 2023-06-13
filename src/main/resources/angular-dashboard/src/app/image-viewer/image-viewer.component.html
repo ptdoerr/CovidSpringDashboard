@@ -1,0 +1,14 @@
+<h1>Image Viewer</h1>
+
+<h2>Select Image File</h2>
+
+<select #fileSelect (change)="onSelect(fileSelect.value)">
+    <option *ngFor="let image_file of image_files" >
+        {{ image_file }}
+    </option>
+</select>
+
+<h3>Selected Image: {{ selectedFile }}</h3>
+
+<img #imageDisplay [src]="imageUrl" />
+
