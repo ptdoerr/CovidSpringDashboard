@@ -27,3 +27,36 @@ Implement query screen in Angular 16.
 ## Phase 4
 
 Implement interactive graph display of queried data.
+
+## HTTP Services
+- */user* - returns authenticated user login name
+- */maps-list* - returns json list of files
+- */map-image-file?fname= * - returns map image from file system
+- */s3-maps-list* - returns json list of files from S3 bucket
+- */map-image-file?fname= * - returns map image from S3 bucket
+
+## Installation
+
+The following are required
+- jdk 17
+- maven 3
+- docker 23
+- docker-compose 1.29
+
+#### Build and run local server
+./mvnw spring-boot:run  
+
+#### Build Docker Image
+./mvnw spring-boot:build-image
+
+## Running
+docker-compose up
+
+### Required Environment Variables
+
+- AWS_ACCESS_KEY_ID
+- AWS_SECRET_ACCESS_KEY
+- GITHUB_CLIENT_ID
+- GITHUB_CLIENT_SECRET
+- S3_IMAGE_BUCKET
+- LOCAL_IMAGE_DIR - local directory containing images
