@@ -1,0 +1,14 @@
+services:
+  covid-spring-dashboard:
+    image: pdoerr/CovidSpringDashboard:latest
+    container_name: CovidSpringDashboard
+
+    ports:
+      - 8080:8080
+    environment:
+      AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID}
+      AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY}
+      GITHUB_CLIENT_ID: ${GITHUB_CLIENT_ID}
+      GITHUB_CLIENT_SECRET: ${GITHUB_CLIENT_SECRET}
+      LOCAL_IMAGE_DIR: ${LOCAL_IMAGE_DIR}
+      S3_IMAGE_BUCKET: ${S3_IMAGE_BUCKET}

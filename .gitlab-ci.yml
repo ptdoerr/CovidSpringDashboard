@@ -1,0 +1,18 @@
+# .gitlab_ci.yml
+variables:
+  DOCKER_HOST: tcp://docker:2375
+
+deploy-job:
+  image: maven:3.8.3-openjdk-17
+  stage: deploy
+  services:
+    - docker:dind
+  script:
+    - echo "Logging into docker"
+    #- docker login --username=$DOCKER_USER --password=$DOCKER_PASS
+    - echo "Running Maven spring-boot:build-image task"
+    - "mvn spring-boot:build-image -DskipTests"
+    #- echo "Changing image tag to pdoerr/spring-image-server:latest"
+    #- /usr/bin/docker tag spring-image-server:0.0.1-SNAPSHOT pdoerr/spring-image-server:latest
+    #- echo "Pushing image to docker hub"
+    #- /usr/bin/docker push pdoerr/spring-image-server:latest
