@@ -14,6 +14,9 @@ JPA Model is created for the data,
 
 Implement spring-image-server funtionality in Angular 16
 
+<img src="src/main/resources/static/image-viewer-2023-06-19.png" width="300px"/>
+
+
 ## Phase 2b - *In Progress*
 
 Build OAuth2 login window.
@@ -60,3 +63,5 @@ docker-compose up
 - GITHUB_CLIENT_SECRET
 - S3_IMAGE_BUCKET
 - LOCAL_IMAGE_DIR - local directory containing images
+- MY_SQL_USER
+- MY_SQL_PASSWORD
