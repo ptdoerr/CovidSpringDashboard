@@ -65,3 +65,4 @@ docker-compose up
 - LOCAL_IMAGE_DIR - local directory containing images
 - MY_SQL_USER
 - MY_SQL_PASSWORD
+
