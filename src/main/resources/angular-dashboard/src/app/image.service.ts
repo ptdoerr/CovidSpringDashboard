@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { HttpParams, HttpParamsOptions } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
 import { DomSanitizer, SafeResourceUrl, SafeUrl} from '@angular/platform-browser';
@@ -17,6 +17,7 @@ export class ImageService {
 
   private s3MapsListUrl = 'http://localhost:8080/s3-maps-list';
   private s3MapsImageUrl = 'http://localhost:8080/s3-map-image-file';
+  private userUrl = 'http://localhost:8080/user';
 
   image_files = FILES_LIST;
 
@@ -51,12 +52,19 @@ export class ImageService {
         authorization : 'Basic ' + btoa(credentials.username + ':' + credentials.password)
     } : {});
 
-    this.http.get('user', {headers: headers}).subscribe(response => {
+    console.log()
+    console.log("credentials: " +JSON.stringify(credentials, null, 4))
+    console.log("Auth header: " +JSON.stringify(headers, null, 4));
+
+    this.http.get(this.userUrl, {headers: headers}).subscribe(response => { 
+
+      console.log("login response: " +response);
+      /*
         if (response['name']) {
             this.authenticated = true;
         } else {
             this.authenticated = false;
-        }
+        }*/
         return callback && callback();
     });
 
